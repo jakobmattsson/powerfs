@@ -34,16 +34,16 @@ exports.isDirectory = function(name, callback) {
   });  
 };
 
-exports.exists = function(name, callback) {
-  // testa om filen existerar
-};
-
 exports.fileExists = function(name, callback) {
-  // som isFile, men om filen inte existerar så får man false, inte exception
+  fs.stat(name, function(err, stat) {
+    callback(!err && stat.isFile());
+  });
 };
 
 exports.directoryExists = function(name, callback) {
-  // som isDirectory, men om filen inte existerar så får man false, inte exception
+  fs.stat(name, function(err, stat) {
+    callback(!err && stat.isDirectory());
+  });
 };
 
 exports.mkdirp = function(name, callback) {
