@@ -31,7 +31,7 @@ exports.isDirectory = function(name, callback) {
     } else {
       callback(null, stat.isDirectory());
     }
-  });  
+  });
 };
 
 exports.fileExists = function(name, callback) {
@@ -51,8 +51,12 @@ exports.mkdirp = function(name, callback) {
 };
 
 exports.rmdir = function(name, callback) {
-  wrench.rmdirSyncRecursive(name);
-  callback(null);
+  path.exists(name, function(exists) {
+    if (exists) {
+      wrench.rmdirSyncRecursive(name);
+    }
+    callback(null);
+  });
 };
 
 exports.isPathAbsolute = function(filename) {
