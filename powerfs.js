@@ -34,6 +34,14 @@ exports.isDirectory = function(name, callback) {
   });
 };
 
+exports.isFileSync = function(name) {
+  return fs.statSync(name).isFile();
+};
+
+exports.isDirectorySync = function(name) {
+  return fs.statSync(name).isDirectory();
+};
+
 exports.fileExists = function(name, callback) {
   fs.stat(name, function(err, stat) {
     callback(!err && stat.isFile());
