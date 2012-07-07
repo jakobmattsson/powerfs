@@ -59,7 +59,7 @@ exports.mkdirp = function(name, callback) {
 };
 
 exports.rmdir = function(name, callback) {
-  path.exists(name, function(exists) {
+  fs.exists(name, function(exists) {
     if (exists) {
       wrench.rmdirSyncRecursive(name);
     }
