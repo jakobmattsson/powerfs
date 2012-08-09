@@ -3,6 +3,9 @@ var path = require('path');
 var mkdirp = require('mkdirp');
 var wrench = require('wrench');
 
+// For compatibility with node 0.6.x
+fs.exists = fs.exists || path.exists;
+
 
 exports.writeFile = function(name, data, encoding, callback) {
   mkdirp(path.dirname(name), function(err) {
@@ -59,7 +62,7 @@ exports.mkdirp = function(name, callback) {
 };
 
 exports.rmdir = function(name, callback) {
-  path.exists(name, function(exists) {
+  fs.exists(name, function(exists) {
     if (exists) {
       wrench.rmdirSyncRecursive(name);
     }
