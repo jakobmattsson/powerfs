@@ -2,7 +2,7 @@
   "name": "powerfs",
   "description": "File system enhancements",
   "main": "./powerfs.js",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": "Jakob Mattsson <jakob.mattsson@gmail.com> (jakobmattsson.se)",
   "repository": {
     "type": "git",
