@@ -8,8 +8,14 @@
     "type": "git",
     "url": "git://github.com/jakobmattsson/powerfs.git"
   },
+  "scripts": {
+    "test": "mocha  --compilers coffee:coffee-script"
+  },
   "engines": {
     "node": ">=0.6.0"
+  },
+  "devDependencies": {
+    "should": "1.2.0"
   },
   "dependencies": {
     "mkdirp": "0.3.0",
