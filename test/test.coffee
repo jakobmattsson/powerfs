@@ -10,3 +10,10 @@ describe 'writeFile', ->
       fs.readFile path, 'utf8', (err, content) ->
         content.should.eql 'foobar'
         done()
+
+  it 'should allow encoding to be omitted', (done) ->
+    path = "tmp/apa.txt"
+    powerfs.writeFile path, 'foobar', ->
+      fs.readFile path, 'utf8', (err, content) ->
+        content.should.eql 'foobar'
+        done()

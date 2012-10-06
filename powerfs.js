@@ -7,12 +7,13 @@ var wrench = require('wrench');
 fs.exists = fs.exists || path.exists;
 
 
-exports.writeFile = function(name, data, encoding, callback) {
+exports.writeFile = function(name) {
+  var args = arguments;
   mkdirp(path.dirname(name), function(err) {
     if (err) {
       callback(err);
     } else {
-      fs.writeFile(name, data, encoding, callback);
+      fs.writeFile.apply(fs, args);
     }
   });
 };
