@@ -6,6 +6,9 @@ var wrench = require('wrench');
 // For compatibility with node 0.6.x
 fs.exists = fs.exists || path.exists;
 
+exports.exists = function() {
+  fs.exists.apply(fs, arguments);
+};
 
 exports.writeFile = function(name) {
   var args = arguments;
